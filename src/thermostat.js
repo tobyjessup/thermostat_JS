@@ -12,4 +12,8 @@ class Thermostat{
   up(temp){
     this.temperature += temp;
   };
+
+  down(temp){
+    this.temperature -= temp;
+  };
 };
