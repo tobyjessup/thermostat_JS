@@ -55,5 +55,16 @@ describe("Thermostat", function(){
     });
   });
 
+  describe("it can be reset to default temp", function(){
+    it("default to 20", function(){
+      for(let i = 0; i < 6; i++){
+        thermostat.up();
+      }
+      thermostat.resetTemperature()
+      expect(thermostat.getCurrentTemperature()).toEqual(20)
+    });
+  });
+
+
 
 });
