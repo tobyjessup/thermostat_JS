@@ -40,7 +40,7 @@ describe("Thermostat", function(){
 
   it("it can switch PSM on after switching to off", function(){
     thermostat.switchPowerSavingModeOff();
-    expect(thermostat.isPowerSavingModeOn()).toBeFalsey;
+    expect(thermostat.isPowerSavingModeOn()).toEqual(false);
     thermostat.switchPowerSavingModeOn();
     expect(thermostat.isPowerSavingModeOn()).toBeTruthy;
   });
@@ -65,6 +65,24 @@ describe("Thermostat", function(){
     });
   });
 
+  describe("display usage level", function(){
+    it("low level", function(){
+      for (let i = 0; i < 3; i++) {
+        thermostat.down();
+      }
+      expect(thermostat.energyUsage()).toEqual('low-usage')
+    });
 
+    it('it is considered medium-usage', function() {
+      expect(thermostat.energyUsage()).toEqual('medium-usage');
+    });
 
+    it('it is considered high-usage', function() {
+      thermostat.switchPowerSavingModeOff();
+      for (let i = 0; i < 7; i++) {
+        thermostat.up();
+      }
+      expect(thermostat.energyUsage()).toEqual('high-usage');
+    });
+  });
 });

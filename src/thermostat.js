@@ -6,7 +6,7 @@ class Thermostat{
     this.MINIMUM_TEMPERATURE = 10;
     this.MAX_LIMIT_PSM_ON = 25;
     this.MAX_LIMIT_PSM_OFF = 32;
-    this.poweSavingMode = true;
+    this.powerSavingMode = true;
   };
 
   getCurrentTemperature(){
@@ -40,7 +40,7 @@ class Thermostat{
   }
   
   isPowerSavingModeOn(){
-    return this.poweSavingMode === true;
+    return this.powerSavingMode === true;
   };
 
   switchPowerSavingModeOff(){
@@ -54,4 +54,15 @@ class Thermostat{
   resetTemperature(){
     this.temperature = 20;
   };
+
+  energyUsage(){
+    if (this.temperature < 18){
+      return 'low-usage'
+    } else if (this.temperature > 25) {
+      return 'high-usage'
+    } else {
+      return 'medium-usage'
+    }
+    
+  }
 };
