@@ -2,10 +2,15 @@
 
 class Thermostat{
   constructor() {
-    this.temperature = 20;
+    
+    this.DEFAUT_TEMPERATURE  = 20;
     this.MINIMUM_TEMPERATURE = 10;
-    this.MAX_LIMIT_PSM_ON = 25;
-    this.MAX_LIMIT_PSM_OFF = 32;
+    this.MAX_LIMIT_PSM_ON    = 25;
+    this.MAX_LIMIT_PSM_OFF   = 32;
+    this.LOW_USAGE_TEMP      = 18;
+    this.HIGH_USAGE_TEMP     = 25;
+
+    this.temperature = this.DEFAUT_TEMPERATURE;
     this.powerSavingMode = true;
   };
 
@@ -52,13 +57,13 @@ class Thermostat{
   };
 
   resetTemperature(){
-    this.temperature = 20;
+    this.temperature = this.DEFAUT_TEMPERATURE;
   };
 
   energyUsage(){
-    if (this.temperature < 18){
+    if (this.temperature < this.LOW_USAGE_TEMP){
       return 'low-usage'
-    } else if (this.temperature > 25) {
+    } else if (this.temperature > this.HIGH_USAGE_TEMP) {
       return 'high-usage'
     } else {
       return 'medium-usage'
