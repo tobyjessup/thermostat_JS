@@ -25,7 +25,7 @@ class Thermostat{
     this.temperature += 1;
   };
 
-  down(temp){
+  down(){
     if (this.isMinimumTemperature()){
       return;
     } else {
