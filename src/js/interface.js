@@ -1,26 +1,24 @@
 document.addEventListener("DOMContentLoaded", function() {
 
-  // fetch('http://api.openweathermap.org/data/2.5/weather?q=London,uk&appid=a3d9eb01d4de82b9b8d0849ef604dbed&units=metric')
-  // .then(function(response){
-  //   return response.json()
-  // })
-  // .then(function(data) {
-  //   document.querySelector('#current-temperature').innerText = data.main.temp;
-  // });
-
-  document.querySelector('#current-city').addEventListener('change', function(event){
-    const city = event.target.value
+  function displayWeather(city){
     const url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=a3d9eb01d4de82b9b8d0849ef604dbed&units=metric`
+  
     fetch(url)
       .then(function(response){
         return response.json()
       })
       .then(function(data) {
         document.querySelector('#current-temperature').innerText = data.main.temp;
-    });
-  });
+      })
+  }
 
+  displayWeather('London')
 
+  document.querySelector('#select-city').addEventListener('submit', function(event) {
+    event.preventDefault();
+    const city = document.querySelector('#current-city').value;
+    displayWeather(city);
+  })
 
   function updateTemperature() {
     document.querySelector('#temperature').innerText = thermostat.temperature;
