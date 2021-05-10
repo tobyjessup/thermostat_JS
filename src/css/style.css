@@ -1,11 +1,23 @@
-.low-usage {
-  color: green;
-}
+#wrapper{
+    color: white;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 1em;
+    padding-top: 1em;
+    border-radius: 30px;
+    margin-top: 5em;
+    max-width: 600px;
+    margin-bottom: 5em;
+  }
 
-.medium-usage {
-  color: black;
-}
+  .low-usage {
+    background-color: green;
+  }
 
-.high-usage {
-  color: red;
-}
+  .medium-usage {
+    background-color: orange;
+  }
+
+  .high-usage {
+    background-color: red;
+  }

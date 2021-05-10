@@ -1,31 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/style.css">
-    <title>Thermostat</title>
-  </head>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="./css/style.css" type="text/css">
+  <link rel="stylesheet" href="./css/energyUsage.css" type="text/css">
+  <title>Thermostat</title>
+</head>
+
   <body>
-    <section>
-      <h1>Current temperature: <span id="current-temperature">20</span></h1>
+    <div id="wrapper" class="container">
+      <div class="row justify-content-center">
+      <h1>Current temperature: <span id="current-temperature"></span> °C </h1>
       <form id="select-city">
         <input id="current-city" type="text" placeholder="Enter a city"></input>
         <input type="submit"></input>
       </form>
-    </section>
-    <section>
+    
+    <div>
+      <div class="row justify-content-center">
       <h1 id="temperature"></h1>
+    </div>
       <p>
         <button id="temperature-up">+</button>
         <button id="temperature-down">-</button>
         <button id="temperature-reset">reset</button>
-        power saving mode is <span id="power-saving-status">on</span>
+        Power saving mode is: <span id="power-saving-status"></span>
         <button id="powersaving-on">PSM on</button>
         <button id="powersaving-off">PSM off</button>
       </p>
-    </section>
+    </div>
+  </div>
     <script src="js/thermostat.js"></script>
     <script src="js/interface.js"></script>
+    <!-- you put the script here to prevent loading delays -->
   </body>
 </html>
